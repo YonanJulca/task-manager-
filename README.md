@@ -1,97 +1,124 @@
 # Task Manager App
 
-Este proyecto es un sistema de gestión de tareas desarrollado con **Laravel** para el backend y **React** para el frontend. Actualmente, se encuentra en proceso de desarrollo, específicamente con problemas relacionados con la integración de pagos Premium mediante PayPal.
+Este es un proyecto en desarrollo de una aplicación de gestión de tareas construida con **React** para el frontend y **Laravel** para el backend. La aplicación incluye autenticación, gestión de tareas, y una funcionalidad premium con integración de **PayPal**.
 
-## Características principales
+---
 
-- **Autenticación de usuarios**: Inicio de sesión y cierre de sesión.
-- **Gestión de tareas**: Crear, leer, actualizar y eliminar tareas.
-- **Estados de tareas**: Marcar tareas como completadas o pendientes.
-- **Funciones Premium**: En proceso de implementación con PayPal Sandbox.
+## Funcionalidades
 
-## Capturas de pantalla
+- **Autenticación de usuarios:** Registro e inicio de sesión.
+- **Gestión de tareas:** Crear, leer, actualizar y eliminar tareas.
+- **Estado de tareas:** Marcar tareas como completadas o pendientes.
+- **Funcionalidad premium:** Acceso a características adicionales mediante integración con PayPal (en desarrollo).
 
-### Inicio de sesión
-![Login](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/login.png)
+---
 
-### Panel principal (Dashboard)
-![Dashboard](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/dashboard.png)
+## Capturas de Pantalla
 
-### Función Premium
-![Premium Feature](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/premium-feature.png)
+### Página de Inicio de Sesión
+![Captura de pantalla (668)](https://github.com/user-attachments/assets/6bacd6ae-94b6-477a-bb21-0585ad7dc95e)
 
-### Proceso de pago con PayPal
-![PayPal Payment](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/paypal-payment.png)
-![PayPal Credit Card](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/paypal-credit-card.png)
 
-### Pruebas en Postman
-#### Actualización de una tarea
-![Postman PUT](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/postman-put.png)
+### Panel de Gestión de Tareas
+![Captura de pantalla (669)](https://github.com/user-attachments/assets/f8ddb490-a5a7-4507-806f-924d5952ab87)
 
-#### Obtención de tareas
-![Postman GET](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/postman-get.png)
 
-#### Creación de una tarea
-![Postman POST](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/postman-post.png)
+### Funcionalidad Premium (PayPal)
+![Captura de pantalla (670)](https://github.com/user-attachments/assets/d4b8bbd3-7162-4e23-8e06-9a7c32ff4df8)
 
-#### Eliminación de una tarea
-![Postman DELETE](https://github.com/tu-usuario/task-manager-app/blob/main/screenshots/postman-delete.png)
 
-## Instalación
+### Proceso de Pago con PayPal
+- Ingreso de correo electrónico en PayPal:
+  ![Captura de pantalla (671)](https://github.com/user-attachments/assets/78bbc940-ec58-4feb-98ae-aaee3d455226)
+  ![Captura de pantalla (672)](https://github.com/user-attachments/assets/a802f78b-358b-4ef9-bd4e-ef9150e5e144)
+
+
+
+### Uso del API con Postman
+
+#### Crendenciales ( 1|5iID68teA7PyTMoxvpzXhPbg2peyN0q48QxeQrsJc0fc64a7 )
+![Captura de pantalla (682)](https://github.com/user-attachments/assets/0e741264-f914-453c-b832-4c40076f1326)
+
+#### Obtener Tareas
+![Captura de pantalla (675)](https://github.com/user-attachments/assets/51caa19a-5cc6-4f30-943f-72e91dc86b58)
+
+
+#### Crear Tarea
+![Captura de pantalla (676)](https://github.com/user-attachments/assets/f9dfd7a9-bfa3-482f-bded-4af043bedd67)
+
+
+#### Actualizar Tarea
+![Captura de pantalla (677)](https://github.com/user-attachments/assets/cc0dbd3b-6565-4a49-bf7f-0c960e229582)
+
+
+#### Eliminar Tarea
+![Captura de pantalla (679)](https://github.com/user-attachments/assets/1f14e2e3-3cae-4f74-a701-a876e8957cf9)
+
+
+---
+
+## Instalación y Configuración
+
+### Requisitos Previos
+- Node.js y npm
+- PHP y Composer
+- MySQL o cualquier base de datos compatible con Laravel
+
+### Instalación
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/task-manager-app.git
+   git clone https://github.com/tuusuario/task-manager.git
+   cd task-manager
    ```
 
-2. Ve al directorio del backend e instala las dependencias:
+2. Configura el backend:
    ```bash
-   cd task-manager-backend
+   cd backend
    composer install
-   ```
-
-3. Configura el archivo `.env` con tus credenciales de base de datos y PayPal.
-
-4. Ejecuta las migraciones:
-   ```bash
+   cp .env.example .env
+   php artisan key:generate
    php artisan migrate
-   ```
-
-5. Inicia el servidor de desarrollo:
-   ```bash
    php artisan serve
    ```
 
-6. Ve al directorio del frontend e instala las dependencias:
+3. Configura el frontend:
    ```bash
-   cd ../task-manager-frontend
+   cd frontend
    npm install
-   ```
-
-7. Inicia el servidor de desarrollo del frontend:
-   ```bash
    npm start
    ```
 
-## Tecnologías utilizadas
+---
 
-- **Backend**: Laravel 9
-- **Frontend**: React
-- **Base de datos**: MySQL
-- **Autenticación**: Sanctum
-- **Pagos**: PayPal Sandbox
+## Uso del Proyecto
 
-## Futuras mejoras
+### Backend
+El backend está configurado con Laravel y expone las siguientes rutas de la API:
 
-- Solución de problemas con la integración de PayPal Premium.
-- Implementación de notificaciones en tiempo real con WebSockets.
-- Mejora de la interfaz de usuario con diseño responsivo.
+- **GET** `/api/tasks`: Obtener todas las tareas.
+- **POST** `/api/tasks`: Crear una nueva tarea.
+- **PUT** `/api/tasks/{id}`: Actualizar una tarea existente.
+- **DELETE** `/api/tasks/{id}`: Eliminar una tarea.
+
+### Frontend
+El frontend está construido con React y ofrece las siguientes vistas:
+- **Inicio de sesión**
+- **Panel de tareas**
+- **Funcionalidad premium (en desarrollo)**
+
+---
+
+## Estado del Proyecto
+El proyecto está en desarrollo. La funcionalidad básica está implementada, pero la integración con PayPal está en proceso.
+
+---
 
 ## Contribuciones
+Si deseas contribuir a este proyecto, por favor abre un *issue* o crea un *pull request* con tus sugerencias.
 
-Este proyecto está abierto a contribuciones. Si deseas colaborar, por favor, haz un fork del repositorio, realiza tus cambios en una rama y envía un pull request.
+---
 
 ## Licencia
-
-Este proyecto está bajo la Licencia MIT.
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
 
